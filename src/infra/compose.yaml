@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    env_file:
+    - ../../.env
+    volumes:
+      - ./.data/polls_pg_data:/bitnami/postgresql
+  redis:
+    image: bitnami/redis:latest
+    env_file:
+    - ../../.env
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./.data/polls_redis_data:/bitnami/redis/data
