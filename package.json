@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
     "dev": "npm run services:up && tsx watch src/server.ts",
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:down": "docker compose -f infra/compose.yaml down",
     "migration:create": "npx prisma migrate dev",
     "lint:check": "prettier --check .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
