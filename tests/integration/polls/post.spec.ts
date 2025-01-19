@@ -8,7 +8,8 @@ test("GET to / should return 200", async () => {
 
 test("POST to /polls should return 201", async () => {
   const payloadBody = {
-    title: "Testando a enquete",
+    title: "Test Title",
+    options: ["Opção 1", "Opção 2", "Opção 3"],
   };
 
   const response = await fetch("http://localhost:3333/polls", {
