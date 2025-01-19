@@ -7,7 +7,9 @@
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:down": "docker compose -f infra/compose.yaml down",
-    "migration:create": "npx prisma migrate dev"
+    "migration:create": "npx prisma migrate dev",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^22.10.7",
+    "prettier": "^3.4.2",
     "prisma": "^6.2.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
