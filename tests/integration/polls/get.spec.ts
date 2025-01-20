@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+
 async function createPoll() {
   const payloadBody = {
     title: "Test Title",
@@ -28,4 +30,14 @@ test("GET to /polls/:pollId should return 200", async () => {
   const responseBody = await response.json();
   expect(responseBody).toEqual({ poll: expect.any(Object) });
   expect(responseBody).toHaveProperty("poll.options");
+});
+
+test("GET to /polls/:pollId should return 404", async () => {
+  const pollId = randomUUID();
+
+  const response = await fetch(`http://localhost:3333/polls/${pollId}`);
+  expect(response.status).toBe(404);
+
+  const responseBody = await response.json();
+  expect(responseBody).toEqual({ message: "Poll not found" });
 });
